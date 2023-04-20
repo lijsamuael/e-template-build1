@@ -70,9 +70,12 @@ export default function Posters() {
                     id="quantity"
                     className="col-span-2 border w-16 g-white border-black px-[10px] py-4 text-center"
                     placeholder={item.quantity.toString()}
-                    onChange={(e) =>
-                      dispatch(changeAmount(parseInt(e.target.value)))
-                    }
+                    onChange={(e) => {
+                      const newQuantity = parseInt(e.target.value);
+                      dispatch(
+                        changeAmount({ id: item.id, quantity: newQuantity })
+                      );
+                    }}
                   />
                   <button
                     onClick={() => addToCartClicked(item)}

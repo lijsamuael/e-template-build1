@@ -20,7 +20,13 @@ export const productSlice = createSlice({
   name: "cartCounter",
   initialState,
   reducers: {
-    changeAmount: (state, action: PayloadAction<number>) => {
+    changeAmount: (state, action: PayloadAction<{ id: number, quantity: number }>) => {
+
+        const index = state.findIndex(product => product.id === action.payload.id);
+
+        if (index !== -1) {
+          state[index].quantity = action.payload.quantity;
+        }
       
     }
   },
