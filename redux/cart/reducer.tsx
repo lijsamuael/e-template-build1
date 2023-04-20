@@ -2,7 +2,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@/app/store";
 
-import { PosterProductType, CartType } from "@/interfaces/type";
+import { PosterProductType } from "@/interfaces/product";
+import CartItem from "@/components/cart/cartItem";
+import { CartType } from "@/interfaces/cart";
 
 function removeObjectWithId(arr: any, id: number) {
   const objWithIdIndex = arr.findIndex((obj: any) => obj.id === id);
@@ -24,12 +26,23 @@ export const cartSlice = createSlice({
   name: "cartCounter",
   initialState,
   reducers: {
-    increement: (state) => {
-      state.amount += 1;
+    increement: (state, action: PayloadAction<PosterProductType>) => {
+      const itemIndex = state.cartItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex !== -1) {
+        state.cartItems[itemIndex].quantity += 1;
+      }
     },
-    decreement: (state) => {
-      state.amount -= 1;
+    decreement: (state, action: PayloadAction<PosterProductType>) => {
+      const itemIndex = state.cartItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex !== -1) {
+        state.cartItems[itemIndex].quantity += 1;
+      }
     },
+
     addToCart: (state, action: PayloadAction<PosterProductType>) => {
       const itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id

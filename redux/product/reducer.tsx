@@ -2,7 +2,7 @@
 import data from "../../model/data.json";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { PosterProductType } from "@/interfaces/type";
+import { PosterProductType } from "@/interfaces/product";
 
 function removeObjectWithId(arr: any, id: number) {
   const objWithIdIndex = arr.findIndex((obj: any) => obj.id === id);
@@ -20,15 +20,18 @@ export const productSlice = createSlice({
   name: "cartCounter",
   initialState,
   reducers: {
-    changeAmount: (state, action: PayloadAction<{ id: number, quantity: number }>) => {
+    changeAmount: (
+      state,
+      action: PayloadAction<{ id: number; quantity: number }>
+    ) => {
+      const index = state.findIndex(
+        (product) => product.id === action.payload.id
+      );
 
-        const index = state.findIndex(product => product.id === action.payload.id);
-
-        if (index !== -1) {
-          state[index].quantity = action.payload.quantity;
-        }
-      
-    }
+      if (index !== -1) {
+        state[index].quantity = action.payload.quantity;
+      }
+    },
   },
 });
 

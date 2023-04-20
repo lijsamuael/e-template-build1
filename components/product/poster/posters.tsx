@@ -9,7 +9,7 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 
 import { changeAmount } from "../../../redux/product/reducer";
 import { RootState } from "@/app/store";
-import { PosterProductType } from "@/interfaces/type";
+import { PosterProductType } from "@/interfaces/product";
 import { addToCart } from "@/redux/cart/reducer";
 
 export default function Posters() {

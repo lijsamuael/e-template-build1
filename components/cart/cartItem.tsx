@@ -1,6 +1,6 @@
-import { useAppDispatch } from "@/app/hooks";
-import { PosterProductType } from "@/interfaces/type";
-import { remove } from "@/redux/cart/reducer";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { PosterProductType } from "@/interfaces/product";
+import { remove, increement, decreement } from "@/redux/cart/reducer";
 
 export default function CartItem({
   cartItem,
@@ -26,11 +26,21 @@ export default function CartItem({
             <p>${cartItem.price}</p>
           </div>
           <div className="flex ">
-            <button className="border border-black py-1 px-2">-</button>
+            <button
+              onClick={() => dispatch(decreement(cartItem))}
+              className="border border-black py-1 px-2"
+            >
+              -
+            </button>
             <span className="border-b border-t  border-black py-1 px-2">
               {cartItem.quantity}
             </span>
-            <button className="border border-black py-1 px-2">+</button>
+            <button
+              onClick={() => dispatch(increement(cartItem))}
+              className="border border-black py-1 px-2"
+            >
+              +
+            </button>
           </div>
           <button
             onClick={() => dispatch(remove(cartItem))}
