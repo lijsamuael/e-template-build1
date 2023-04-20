@@ -14,8 +14,11 @@ interface CartModalProps {
 }
 
 export default function Cart(props: CartModalProps) {
+
   const cart = useAppSelector((state: RootState) => state.carts);
   const dispatch = useAppDispatch();
+
+  
 
   function handleCartClose(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -33,7 +36,7 @@ export default function Cart(props: CartModalProps) {
             className="top-0 w-12  text-warning-light4 ml-4"
             onClick={handleCartClose}
           >
-            <CloseIcon  />
+            <CloseIcon />
           </button>
           <div className="overflow-y-auto top-0 w-[350px] bg-white h-full pt-8 space-y-4 px-4 flex flex-col  pb-8">
             <p className="text-center text-3xl font-bold">YOUR CART</p>
@@ -42,25 +45,13 @@ export default function Cart(props: CartModalProps) {
               <CartItem cartItem={item}></CartItem>
             ))}
             <div className="space-y-2 text-center">
-              <p className="text-lg text-center">
-                LEAVE A NOTE WITH YOUR ORDER
-              </p>
-              <input type="text" className="w-full py-4 border-2" />
-              <div className="flex flex-col">
-                <p className="text-2xl font-bold pt-4">Total</p>
-                <p className="text-xl font-semibold">${cart.totalPrice} USD</p>
+              <div className="flex justify-center gap-x-8 items-center pt-4">
+                <p className="text-2xl font-bold ">Total</p>
+                <p className="text-xl font-semibold ">${cart.totalPrice} USD</p>
               </div>
-              <p className="text-lg font-semibold">
-                Taxes and shipping calculated at checkout
-              </p>
-              <button className="w-full py-2  border-2 border-black bg-blue-800 text-white text-xs">
+
+              <button className="w-full py-2  border-2 border-black bg-gray-dark2 text-primary-white text-xs">
                 CHECKOUT
-              </button>
-              <button className="text-xs pt-3  border-b border-black">
-                CONTINUE SHOPPING
-              </button>
-              <button className="w-full py-1  text-center text-white bg-indigo-500 border border-indigo-500  flex items-center justify-center">
-                <img src="./icons/shoppay.png" alt="" className="w-28" />
               </button>
             </div>
           </div>

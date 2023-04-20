@@ -22,6 +22,19 @@ const initialState = {
   totalPrice: 0,
 } as CartType;
 
+function calculateCartTotal(cartItems: PosterProductType[]): {
+  amount: number;
+  totalPrice: number;
+} {
+  let amount = 0;
+  let totalPrice = 0;
+  for (const item of cartItems) {
+    amount += item.quantity;
+    totalPrice += item.quantity * item.price;
+  }
+  return { amount, totalPrice };
+}
+
 export const cartSlice = createSlice({
   name: "cartCounter",
   initialState,
@@ -33,14 +46,20 @@ export const cartSlice = createSlice({
       if (itemIndex !== -1) {
         state.cartItems[itemIndex].quantity += 1;
       }
+      const { amount, totalPrice } = calculateCartTotal(state.cartItems);
+      state.amount = amount;
+      state.totalPrice = totalPrice;
     },
     decreement: (state, action: PayloadAction<PosterProductType>) => {
       const itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
       if (itemIndex !== -1) {
-        state.cartItems[itemIndex].quantity += 1;
+        state.cartItems[itemIndex].quantity -= 1;
       }
+      const { amount, totalPrice } = calculateCartTotal(state.cartItems);
+      state.amount = amount;
+      state.totalPrice = totalPrice;
     },
 
     addToCart: (state, action: PayloadAction<PosterProductType>) => {
@@ -54,9 +73,15 @@ export const cartSlice = createSlice({
         console.log("This item already exists in your cart.");
         window.alert("This item already exists in your cart.");
       }
+      const { amount, totalPrice } = calculateCartTotal(state.cartItems);
+      state.amount = amount;
+      state.totalPrice = totalPrice;
     },
     remove: (state, action: PayloadAction<PosterProductType>) => {
       removeObjectWithId(state.cartItems, action.payload.id);
+      const { amount, totalPrice } = calculateCartTotal(state.cartItems);
+      state.amount = amount;
+      state.totalPrice = totalPrice;
     },
   },
 });

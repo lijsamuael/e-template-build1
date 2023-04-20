@@ -3,11 +3,11 @@
 import Cart from "@/components/cart/cart";
 import { useState } from "react";
 
-import data from "../../../model/data.json";
+import data from "../../model/data.json";
 
-import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
-import { changeAmount } from "../../../redux/product/reducer";
+import { changeAmount } from "../../redux/product/reducer";
 import { RootState } from "@/app/store";
 import { PosterProductType } from "@/interfaces/product";
 import { addToCart } from "@/redux/cart/reducer";
@@ -49,7 +49,7 @@ export default function Posters() {
               <div>
                 <h2 className="text-2xl font-semibold">{item.name}</h2>
                 <p className="text-lg">$ {item.price} USD</p>
-                <span className="text-white px-2 py-1 bg-red-400 inline-block text-xs ">
+                <span className="text-white px-2 py-1 bg-gray-light4 inline-block text-xs ">
                   FREE SHIPPING
                 </span>
               </div>

@@ -1,9 +1,11 @@
-import Link from "next/link";
+import PosterNavBar from "@/components/product/navbar";
+import Posters from "@/components/product/posters";
 
 export default function Home() {
   return (
     <main className="space-x-16">
-      <Link href="/posters">Posters </Link>
+      <PosterNavBar />
+      <Posters />
     </main>
   );
 }
