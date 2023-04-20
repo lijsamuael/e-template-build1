@@ -1,22 +1,10 @@
 "use client";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "@/app/store";
+import { OrderType } from "@/interfaces/order";
+import { useAppSelector } from "@/app/hooks";
 
-export interface ProductType {
-  id: number;
-  name: string;
-  price: number;
-  tag: string;
-  dimenstion: string;
-  img: string;
-  description: string;
-}
-
-export interface CartType {
-  cartItems: ProductType[];
-  amount: number;
-  totalPrice: number;
-}
+import data from "./../../model/data.json";
+import { RootState } from "@/app/store";
 
 function removeObjectWithId(arr: any, id: number) {
   const objWithIdIndex = arr.findIndex((obj: any) => obj.id === id);
@@ -28,31 +16,60 @@ function removeObjectWithId(arr: any, id: number) {
   return arr;
 }
 
-const initialState = {
-  cartItems: [],
-  amount: 0,
-  totalPrice: 0,
-} as CartType;
+const initialState: OrderType = {
+  // cart: carts,
+  shipping: data.shipping,
+  payment: data.payment,
+};
 
 export const orderSlice = createSlice({
   name: "cartCounter",
   initialState,
   reducers: {
-    increement: (state) => {
-      state.amount += 1;
+    changeValue: (state, action: PayloadAction<string>) => {
+      state.shipping.email = action.payload;
     },
-    decreement: (state) => {
-      state.amount -= 1;
-    },
-    addToCart: (state, action: PayloadAction<ProductType>) => {
-      state.cartItems.push(action.payload);
-    },
-    remove: (state, action: PayloadAction<ProductType>) => {
-      removeObjectWithId(state, action.payload.id);
-    },
+    // changeFullName: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
+    // changeStreetAdress: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
+    // changeCity: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
+    // changeState: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
+    // changeZip: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
+    // changeCardNumber: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
+    // changeExpirationDate: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
+    // changeSecurityCode: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
+    // changeSCountry: (state, action: PayloadAction<string>) => {
+    //   state.shipping.email = action.payload;
+    // },
   },
 });
 
-export const { increement, decreement, addToCart, remove } = orderSlice.actions;
+export const {
+  changeValue,
+  // changeFullName,
+  // changeStreetAdress,
+  // changeCity,
+  // changeState,
+  // changeZip,
+  // changeCardNumber,
+  // changeExpirationDate,
+  // changeSecurityCode,
+  // changeSCountry,
+} = orderSlice.actions;
 
 export default orderSlice.reducer;

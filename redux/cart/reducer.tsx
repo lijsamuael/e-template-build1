@@ -32,6 +32,7 @@ function calculateCartTotal(cartItems: PosterProductType[]): {
     amount += item.quantity;
     totalPrice += item.quantity * item.price;
   }
+  totalPrice.toFixed(2);
   return { amount, totalPrice };
 }
 
@@ -50,6 +51,7 @@ export const cartSlice = createSlice({
       state.amount = amount;
       state.totalPrice = totalPrice;
     },
+
     decreement: (state, action: PayloadAction<PosterProductType>) => {
       const itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
@@ -77,6 +79,7 @@ export const cartSlice = createSlice({
       state.amount = amount;
       state.totalPrice = totalPrice;
     },
+
     remove: (state, action: PayloadAction<PosterProductType>) => {
       removeObjectWithId(state.cartItems, action.payload.id);
       const { amount, totalPrice } = calculateCartTotal(state.cartItems);

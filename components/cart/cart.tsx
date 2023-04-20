@@ -7,6 +7,7 @@ import CloseIcon from "../icons/close";
 
 import { useAppSelector, useAppDispatch } from ".//../../app/hooks";
 import { RootState } from "@/app/store";
+import Link from "next/link";
 
 interface CartModalProps {
   cartState: boolean;
@@ -14,11 +15,8 @@ interface CartModalProps {
 }
 
 export default function Cart(props: CartModalProps) {
-
   const cart = useAppSelector((state: RootState) => state.carts);
   const dispatch = useAppDispatch();
-
-  
 
   function handleCartClose(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -45,14 +43,16 @@ export default function Cart(props: CartModalProps) {
               <CartItem cartItem={item}></CartItem>
             ))}
             <div className="space-y-2 text-center">
-              <div className="flex justify-center gap-x-8 items-center pt-4">
+              <div className="flex justify-center gap-x-8 items-center pt-4 mb-4">
                 <p className="text-2xl font-bold ">Total</p>
                 <p className="text-xl font-semibold ">${cart.totalPrice} USD</p>
               </div>
-
-              <button className="w-full py-2  border-2 border-black bg-gray-dark2 text-primary-white text-xs">
+              <Link
+                href={"/order"}
+                className="w-48 py-2 px-8  border-2 border-primary-black bg-gray-dark2 text-primary-white text-xs"
+              >
                 CHECKOUT
-              </button>
+              </Link>
             </div>
           </div>
         </div>
