@@ -31,7 +31,16 @@ export const cartSlice = createSlice({
       state.amount -= 1;
     },
     addToCart: (state, action: PayloadAction<PosterProductType>) => {
-      state.cartItems.push(action.payload);
+      const itemIndex = state.cartItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex === -1) {
+        state.cartItems.push(action.payload);
+        state.amount += 1;
+      } else {
+        console.log("This item already exists in your cart.");
+        window.alert("This item already exists in your cart.");
+      }
     },
     remove: (state, action: PayloadAction<PosterProductType>) => {
       removeObjectWithId(state.cartItems, action.payload.id);
