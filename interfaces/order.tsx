@@ -22,3 +22,21 @@ export interface PaymentType {
   expirationData: string;
   securityCode: string;
 }
+
+export interface FormType {
+  name: string;
+  order: number;
+  required: boolean;
+  warning: string;
+  inputs: {
+    size: number;
+    heading: {
+      name: string;
+      placeholder: string;
+      type: string;
+      class: string;
+    }[];
+    required: boolean;
+    class: string;
+  }[]
+}

@@ -1,30 +1,11 @@
 "use client";
 
 import { useAppDispatch } from "@/app/hooks";
+import { FormType } from "@/interfaces/order";
 // import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { changeValue } from "@/redux/order/reducer";
 
-export default function CustomForm({
-  form,
-}: {
-  form: {
-    name: string;
-    order: number;
-    required: boolean;
-    warning: string;
-    inputs: {
-      size: number;
-      heading: {
-        name: string;
-        placeholder: string;
-        type: string;
-        class: string;
-      }[];
-      required: boolean;
-      class: string;
-    }[];
-  };
-}) {
+export default function CustomForm({ form }: { form: FormType }) {
   const dispatch = useAppDispatch();
 
   return (
