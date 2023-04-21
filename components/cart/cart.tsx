@@ -1,13 +1,12 @@
 "use client";
 
-import CartItem from "@/components/cart/cartItem";
 import { MouseEventHandler } from "react";
+import Link from "next/link";
 
 import CloseIcon from "../icons/close";
-
+import CartItem from "@/components/cart/cartItem";
 import { useAppSelector, useAppDispatch } from ".//../../app/hooks";
 import { RootState } from "@/app/store";
-import Link from "next/link";
 
 interface CartModalProps {
   cartState: boolean;
@@ -21,7 +20,12 @@ export default function Cart(props: CartModalProps) {
   function handleCartClose(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
-    props.closeCartAction(event);
+    if (
+      (event.target as HTMLElement).id === "container" ||
+      (event.target as HTMLElement).id === "closeButton"
+    ) {
+      props.closeCartAction(event);
+    }
   }
 
   const { cartState } = props;
@@ -29,7 +33,11 @@ export default function Cart(props: CartModalProps) {
   return (
     <>
       {cartState && (
-        <div className="  fixed z-10 top-0 left-0 bg-gray-dark1  w-full h-full flex items-start justify-end  bg-opacity-40 ">
+        <button
+          id="container"
+          onClick={handleCartClose}
+          className="  fixed z-10 top-0 left-0 bg-gray-dark1  w-full h-full flex items-start justify-end  bg-opacity-40"
+        >
           <div className="overflow-y-auto top-0 w-full ssm:w-[350px] bg-white h-full pt-8 space-y-4 px-4 flex flex-col justify-between  pb-8 ">
             <div className="flex flex-col gap-y-6">
               <div className="flex justify-between items-center">
@@ -55,14 +63,15 @@ export default function Cart(props: CartModalProps) {
                   </p>
                 </div>
               </div>
-              <Link href={"/order"} className="text-center bg-primary-black text-primary-white py-2 ">
-                <button  className="w-full text-center">
-                  CHECKOUT
-                </button>
+              <Link
+                href={"/order"}
+                className="text-center bg-primary-black text-primary-white py-4 "
+              >
+                <button className="w-full text-center">CHECKOUT</button>
               </Link>
             </div>
           </div>
-        </div>
+        </button>
       )}
     </>
   );
