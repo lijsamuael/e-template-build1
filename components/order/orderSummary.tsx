@@ -41,7 +41,7 @@ export default function OrderSummary({
           <p className="text-lg font-medium">Discount Code</p>
           <div className="grid grid-cols-3 gap-x-2 gap-y-4">
             <input
-              className=" col-span-3 ssm:col-span-2 bg-gray-200 px-4 py-4 "
+              className=" col-span-3 ssm:col-span-2 bg-gray-light1 px-4 py-4 "
               type="text"
             />
             <button className=" col-span-3 ssm:col-span-1 border border-black py-4 px-8 ">

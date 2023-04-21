@@ -16,15 +16,25 @@ export default function Summary() {
           key={index}
           className="flex flex-col sm:flex-row justify-between w-full gap-y-2 sm:gap-y-4"
         >
-          <div className="flex flex-col sm:flex-row gap-x-4 w-full sm:w-[130px] lg:w-[170px] ">
-            <img src="./images/image1.png" alt="" width="" />
-            <div className="flex flex-col sm:justify-center space-y-2 sm:space-y-4 whitespace-nowrap">
-              <p className="text-xl font-bold">{item.name}</p>
-              <p>Quantity {item.quantity}</p>
+          <div className="flex flex-col sm:flex-row gap-x-4 w-full  ">
+            <img
+              src="./images/image1.png"
+              alt=""
+              width=""
+              className="sm:w-[130px] lg:w-[170px]"
+            />
+            <div className="flex flex-col sm:justify-center space-y-2 sm:space-y-4 ">
+              <div className="w-4/6 space-y-2">
+                <p className="text-xl font-bold">{item.name}</p>
+                <p className="text-base font-semibold ">{item.dimension}</p>
+                <p className="text-base ">{item.description}</p>
+              </div>
+              <div className="flex  justify-between">
+                <p>Quantity {item.quantity}</p>
+
+                <p className="text-lg">$ {item.price * item.quantity}</p>
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col justify-center">
-            <p className="text-lg">$ {item.price * item.quantity}USD</p>
           </div>
         </div>
       ))}

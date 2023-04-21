@@ -5,9 +5,9 @@ import LeftArrowIcon from "../icons/leftArrow";
 export default function OrderNavBar() {
   return (
     <nav className="bg-black">
-      <div className="relative flex flex-col z-0 text-white px-[4%] pt-8 pb-40 space-y-12 max-w-[1500px] mx-auto">
+      <div className="relative flex flex-col z-0 text-primary-white px-[4%] pt-8 pb-40 space-y-12 max-w-[1500px] mx-auto">
         <div className="flex items-center ">
-          <Link href="/" className="space-x-2 self-end">
+          <Link href="/" className="w-[70px]  flex space-x-2 self-end items-center">
             <LeftArrowIcon />
             <span>Back</span>
           </Link>

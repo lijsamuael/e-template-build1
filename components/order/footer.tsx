@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import InstagramIcon from "../icons/instagram";
 
@@ -33,8 +32,8 @@ export default function OrderFooter() {
               Submit
             </button>
           </div>
-          <div className=" flex ssm:self-start  justify-center space-x-2  items-center">
-            <InstagramIcon/>
+          <div className="w-28 flex ssm:self-start  justify-center space-x-2  items-center">
+            <InstagramIcon />
             <span className="text-sm">Instagram</span>
           </div>
         </div>

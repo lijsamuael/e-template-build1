@@ -11,18 +11,22 @@ export default function CartItem({
 
   return (
     <div className="flex flex-col gap-y-4">
-      <h1 className="text-center text-2xl font-bold">{cartItem.name}</h1>
       <div className="flex gap-x-4">
-        <div className="flex flex-col bg-gray-100 mx-2 h-36 ssm:h-48 py-8 justify-center">
+        <div className="flex flex-col bg-gray-100 mx-2 h-full  py-8 justify-center">
           <div className="self-center px-4">
-            <img src={`./images/${cartItem.img}`} alt="" className="w-[90px]" />
+            <img
+              src={`./images/${cartItem.img}`}
+              alt=""
+              className="w-[150px] h-full object-cover"
+            />
           </div>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-3 self-center">
           <div>
-            <p>
-              {"primary-black"} / {cartItem.dimension}
-            </p>
+            <h1 className=" text-2xl font-bold pb-2 whitespace-nowrap">
+              {cartItem.name}
+            </h1>
+            <p>{cartItem.dimension}</p>
             <p>${cartItem.price}</p>
           </div>
           <div className="flex ">
