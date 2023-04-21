@@ -11,6 +11,7 @@ import { changeAmount } from "../../redux/product/reducer";
 import { RootState } from "@/app/store";
 import { PosterProductType } from "@/interfaces/product";
 import { addToCart } from "@/redux/cart/reducer";
+import Link from "next/link";
 
 export default function Posters() {
   const posters = useAppSelector((state: RootState) => state.products);
@@ -84,9 +85,13 @@ export default function Posters() {
                     Add to Cart
                   </button>
                 </div>
-                <button className="border border-black bg-black px-[26px] py-4 text-white whitespace-nowrap grow ssm:flex-none">
+                <Link
+                  onClick={() => handleAddToCart(item)}
+                  href="/order"
+                  className="border border-black bg-black px-[26px] py-4 text-white whitespace-nowrap grow ssm:flex-none"
+                >
                   Buy Now
-                </button>
+                </Link>
               </div>
 
               <div className="">

@@ -6,7 +6,8 @@ export interface PosterProductType {
     dimension: string;
     img: string;
     description: string;
-    quantity:number
+    quantity:number,
+    currency:string
   }
 
   

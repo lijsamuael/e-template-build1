@@ -72,8 +72,7 @@ export const cartSlice = createSlice({
         state.cartItems.push(action.payload);
         state.amount += 1;
       } else {
-        console.log("This item already exists in your cart.");
-        window.alert("This item already exists in your cart.");
+        state.cartItems[itemIndex].quantity = action.payload.quantity;
       }
       const { amount, totalPrice } = calculateCartTotal(state.cartItems);
       state.amount = amount;

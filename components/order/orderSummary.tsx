@@ -34,7 +34,9 @@ export default function OrderSummary({
           </div>
           <div className="flex justify-between py-4">
             <p className="text-lg font-medium">Total</p>
-            <p className="text-xl font-bold">$ {cart.totalPrice} USD</p>
+            <p className="text-xl font-bold">
+              $ {cart.totalPrice.toFixed(2)} USD
+            </p>
           </div>
         </div>
         <div className="px-4 py-4 space-y-2">

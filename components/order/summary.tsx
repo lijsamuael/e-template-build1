@@ -32,7 +32,9 @@ export default function Summary() {
               <div className="flex  justify-between">
                 <p>Quantity {item.quantity}</p>
 
-                <p className="text-lg">$ {item.price * item.quantity}</p>
+                <p className="text-lg">
+                  $ {item.price * item.quantity} {item.currency}
+                </p>
               </div>
             </div>
           </div>
