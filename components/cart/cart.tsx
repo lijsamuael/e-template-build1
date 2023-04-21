@@ -40,7 +40,7 @@ export default function Cart(props: CartModalProps) {
             <p className="text-center text-3xl font-bold">YOUR CART</p>
             <hr className="" />
             {cart.cartItems.map((item, index) => (
-              <CartItem cartItem={item}></CartItem>
+              <CartItem key={index} cartItem={item}></CartItem>
             ))}
             <div className="space-y-2 text-center">
               <div className="flex justify-center gap-x-8 items-center pt-4 mb-4">

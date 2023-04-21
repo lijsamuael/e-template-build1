@@ -6,7 +6,7 @@ export default function CloseIcon() {
       xmlns="http://www.w3.org/2000/svg"
       stroke="#ffffff"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
         stroke-linecap="round"
@@ -17,7 +17,7 @@ export default function CloseIcon() {
         <path
           d="M6 6L18 18M18 6L6 18"
           stroke="#ffffff"
-          stroke-width="1.2"
+          strokeWidth="1.2"
           stroke-linecap="round"
           stroke-linejoin="round"
         ></path>{" "}
