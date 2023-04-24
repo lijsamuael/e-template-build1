@@ -65,15 +65,8 @@ export const cartSlice = createSlice({
     },
 
     addToCart: (state, action: PayloadAction<PosterProductType>) => {
-      const itemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
-      if (itemIndex === -1) {
-        state.cartItems.push(action.payload);
-        state.amount += 1;
-      } else {
-        state.cartItems[itemIndex].quantity = action.payload.quantity;
-      }
+      state.cartItems.push(action.payload);
+      state.amount += 1;
       const { amount, totalPrice } = calculateCartTotal(state.cartItems);
       state.amount = amount;
       state.totalPrice = totalPrice;

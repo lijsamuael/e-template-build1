@@ -10,9 +10,9 @@ export default function CartItem({
   const dispatch = useAppDispatch();
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-4 pt-4">
       <div className="flex ">
-        <div className="flex flex-col bg-gray-100 mx-2 h-full  py-8 justify-center">
+        <div className="flex flex-col bg-gray-100 mx-2 h-full  justify-center">
           <div className="self-center px-4">
             <img
               src={`./images/${cartItem.img}`}

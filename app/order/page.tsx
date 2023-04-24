@@ -16,7 +16,7 @@ export default function Order() {
         </div>
         <Summary />
         <CustomForm form={shipping} />
-        <div className="space-y-2">
+        <div className="space-y-8">
           <CustomForm form={payment} />
           <OrderSummary width="w-full" visiblity="flex lg:hidden" />
         </div>

@@ -16,24 +16,29 @@ export default function Summary() {
           key={index}
           className="flex flex-col sm:flex-row justify-between w-full gap-y-2 sm:gap-y-4"
         >
-          <div className="flex flex-col sm:flex-row gap-x-4 w-full  ">
+          <div className="flex flex-col sm:flex-row gap-x-4 w-full gap-y-4">
+            <div className="md:w-4/12">
             <img
               src="./images/image1.png"
               alt=""
               width=""
-              className="sm:w-[130px] lg:w-[170px]"
+              className="aspect-[2/3]"
             />
-            <div className="flex flex-col sm:justify-center space-y-2 sm:space-y-4 ">
-              <div className="w-4/6 space-y-2">
-                <p className="text-xl font-bold">{item.name}</p>
-                <p className="text-base font-semibold ">{item.dimension}</p>
-                <p className="text-base ">{item.description}</p>
+            </div>
+            <div className="flex flex-col md:w-8/12 sm:justify-center space-y-2 sm:space-y-4 ">
+              <div className="w-full space-y-2">
+                <p className="text-lg md:text-xl font-bold">{item.name}</p>
+                <p className="text-sm md:text-base font-semibold ">
+                  {item.dimension}
+                </p>
+                <p className="text-sm md:text-base  font-normal">{item.description}</p>
               </div>
               <div className="flex  justify-between">
                 <p>Quantity {item.quantity}</p>
 
-                <p className="text-lg">
-                  $ {item.price * item.quantity} {item.currency}
+                <p className="text-base md:text-lg">
+                  $ {(item.price * item.quantity).toFixed(2)}
+                  {item.currency}
                 </p>
               </div>
             </div>

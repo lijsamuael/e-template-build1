@@ -36,7 +36,7 @@ export default function Posters() {
   };
 
   return (
-    <div className="flex flex-col   pt-8 sm:mr-0 sm:ml-8  md:mr-0 md:ml-8 lg:mr-[1%] lg:ml-[4%] gap-y-16">
+    <div className="flex flex-col  items-center gap-y-16 pt-16 sm:pl-12">
       <h1 className="text-4xl mx-auto">Posters</h1>
       {posters.map((item, index) => (
         <>
@@ -80,7 +80,7 @@ export default function Posters() {
                   />
                   <button
                     onClick={() => addToCartClicked(item)}
-                    className="col-span-7 border bg-white border-black px-[26px] py-4 whitespace-nowrap"
+                    className="col-span-7 border bg-white border-black  px-6 py-4 whitespace-nowrap"
                   >
                     Add to Cart
                   </button>
@@ -88,7 +88,7 @@ export default function Posters() {
                 <Link
                   onClick={() => handleAddToCart(item)}
                   href="/order"
-                  className="border border-black bg-black px-[26px] py-4 text-white whitespace-nowrap grow ssm:flex-none"
+                  className="border border-black text-center bg-black px-[26px] py-4 text-white whitespace-nowrap grow ssm:flex-none"
                 >
                   Buy Now
                 </Link>

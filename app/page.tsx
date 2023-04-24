@@ -3,7 +3,7 @@ import Posters from "@/components/product/posters";
 
 export default function Home() {
   return (
-    <main className="space-x-16">
+    <main className="">
       <PosterNavBar />
       <Posters />
     </main>
