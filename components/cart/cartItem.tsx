@@ -11,7 +11,7 @@ export default function CartItem({
 
   return (
     <div className="flex flex-col gap-y-4">
-      <div className="flex gap-x-4">
+      <div className="flex ">
         <div className="flex flex-col bg-gray-100 mx-2 h-full  py-8 justify-center">
           <div className="self-center px-4">
             <img
@@ -21,8 +21,8 @@ export default function CartItem({
             />
           </div>
         </div>
-        <div className="space-y-3 self-center">
-          <div>
+        <div className="space-y-3 self-center flex flex-col justify-start items-start">
+          <div className="flex flex-col justify-start items-start">
             <h1 className=" text-2xl font-bold pb-2 whitespace-nowrap">
               {cartItem.name}
             </h1>
