@@ -36,7 +36,7 @@ export default function Cart(props: CartModalProps) {
         <button
           id="container"
           onClick={handleCartClose}
-          className="  fixed z-10 top-0 left-0 bg-gray-dark1  w-full h-full flex items-start justify-end  bg-opacity-40"
+          className="  fixed z-10 inset-0 bg-gray-dark1  w-full h-screen flex items-start justify-end  bg-opacity-40"
         >
           <div className="overflow-y-auto top-0 w-full ssm:w-[350px] bg-white h-full pt-2 space-y-4 px-4 flex flex-col justify-between  ">
             <div className="flex flex-col ">
@@ -68,7 +68,7 @@ export default function Cart(props: CartModalProps) {
                 href={"/order"}
                 className="text-center bg-primary-black text-primary-white py-4 "
               >
-                <button className="w-full text-center">CHECKOUT</button>
+                <button className="w-full text-center ">CHECKOUT</button>
               </Link>
             </div>
           </div>

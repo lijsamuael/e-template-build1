@@ -4,8 +4,8 @@ import TubeIcon from "@/components/icons/tube";
 
 export default function PosterNavBar() {
   return (
-    <nav className="flex bg-black text-white ">
-      <div className="grid grid-cols-1 grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 w-full mx-[3%] mt-12 mb-16 justify-around">
+    <nav className="flex bg-black text-white min-w-[300px]">
+      <div className="grid grid-cols-1  lg:grid-cols-3  w-full mx-[3%] mt-12 mb-16 justify-around">
         <div className="w-full border flex ">
           <div className="flex items-center mx-auto space-x-4  py-8">
             <PaperIcon />

@@ -12,6 +12,7 @@ import { RootState } from "@/app/store";
 import { PosterProductType } from "@/interfaces/product";
 import { addToCart } from "@/redux/cart/reducer";
 import Link from "next/link";
+import ImageViewerModal from "./imageViewerModal";
 
 export default function Posters() {
   const posters = useAppSelector((state: RootState) => state.products);
@@ -22,12 +23,20 @@ export default function Posters() {
   };
 
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
 
   const handleOpen = () => {
     setIsCartOpen(true);
   };
   const handleClose = () => {
     setIsCartOpen(false);
+  };
+
+  const handleImageViewerOpen = () => {
+    setIsImageViewerOpen(true);
+  };
+  const handleImageViewerClose = () => {
+    setIsImageViewerOpen(false);
   };
 
   const addToCartClicked = (product: PosterProductType) => {
@@ -95,7 +104,10 @@ export default function Posters() {
               </div>
 
               <div className="">
-                <button className="text-gray-500 border-b border-gray-500 border-dashed whitespace-nowrap ">
+                <button
+                  onClick={() => handleImageViewerOpen()}
+                  className="text-gray-500 border-b border-gray-500 border-dashed whitespace-nowrap "
+                >
                   More Photos
                 </button>
               </div>
@@ -103,6 +115,13 @@ export default function Posters() {
           </div>
           {isCartOpen && (
             <Cart closeCartAction={handleClose} cartState={isCartOpen} />
+          )}
+          {isImageViewerOpen && (
+            <ImageViewerModal
+              closeImageViewer={handleImageViewerClose}
+              imageViewerState={isImageViewerOpen}
+              product={item}
+            />
           )}
         </>
       ))}
