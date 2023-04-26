@@ -16,7 +16,7 @@ export default function RootLayout({
         <meta name="description" content="fully function e-commerce website" />
       </Head>
       <html lang="en">
-        <body className="font-mono">
+        <body className="font-mono overflow-hidden" id="body">
           <Providers>{children}</Providers>
         </body>
       </html>

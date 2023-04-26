@@ -1,7 +1,7 @@
 "use client";
 
 import Cart from "@/components/cart/cart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import data from "../../model/data.json";
 
@@ -24,6 +24,14 @@ export default function Posters() {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
+
+  useEffect(() => {
+    if (isCartOpen || isImageViewerOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [isCartOpen, isImageViewerOpen]);
 
   const handleOpen = () => {
     setIsCartOpen(true);

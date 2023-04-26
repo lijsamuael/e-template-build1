@@ -343,7 +343,7 @@
       "description": "Voyager 1 is spce zprobe lunched by NASA on September 5, 1997. Part of the Voyager program to study the outer solar system, Voyager 1 was lunched 16 days after its twin, Voyager 2.",
       "quantity": 1,
       "currency": "USD",
-      "moreImages": ["image1.png", "image1.png", "image1.png"]
+      "moreImages": ["image1.png", "image1.png", "image1.png", "image1.png", "image1.png"]
     },
     {
       "id": 2,
@@ -355,7 +355,7 @@
       "description": "Voyager 2 is spce probe lunched by NASA on September 5, 1997. Part of the Voyager program to study the outer solar system, Voyager 1 was lunched 16 days after its twin, Voyager 2.",
       "quantity": 1,
       "currency": "USD",
-      "moreImages": ["image1.png", "image1.png", "image1.png"]
+      "moreImages": ["image1.png", "image1.png", "image1.png", "image1.png", "image1.png"]
     }
   ],
   "shipping": {

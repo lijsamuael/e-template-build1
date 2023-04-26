@@ -17,7 +17,7 @@ export default function CloseIcon() {
         {" "}
         <path
           d="M6 6L18 18M18 6L6 18"
-          stroke="#000000"
+          stroke="#ffffff"
           strokeWidth="1.2"
           stroke-linecap="round"
           stroke-linejoin="round"

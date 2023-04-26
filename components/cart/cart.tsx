@@ -36,9 +36,9 @@ export default function Cart(props: CartModalProps) {
         <button
           id="container"
           onClick={handleCartClose}
-          className="  fixed z-10 inset-0 bg-gray-dark1  w-full h-screen flex items-start justify-end  bg-opacity-40"
+          className="  fixed z-10 inset-0 bg-gray-dark1  w-full h-screen flex items-start justify-end   bg-opacity-40"
         >
-          <div className="overflow-y-auto top-0 w-full ssm:w-[350px] bg-white h-full pt-2 space-y-4 px-4 flex flex-col justify-between  ">
+          <div className=" overflow-y-auto top-0 w-full ssm:w-[400px] bg-white h-full pt-2 space-y-4 px-4 flex flex-col justify-between  ">
             <div className="flex flex-col ">
               <div className="flex justify-between items-center">
                 <p className="text-center text-3xl font-bold">YOUR CART</p>
@@ -46,30 +46,33 @@ export default function Cart(props: CartModalProps) {
                   className="top-0 w-12  text-warning-light4 ml-4"
                   onClick={handleCartClose}
                 >
+                  <div className="p-1 bg-black w-8 rounded-lg mb-2">
                   <CloseIcon />
+                  </div>
                 </button>
               </div>
               <hr className="" />
               {cart.cartItems.map((item, index) => (
                 <CartItem key={index} cartItem={item}></CartItem>
               ))}
-
             </div>
-            <div className="w-full">
-              <div className="space-y-2 text-center">
-                <div className="flex  gap-x-8 justify-between items-center pt-4 mb-4">
-                  <p className="text-2xl font-bold ">Total</p>
-                  <p className="text-xl font-semibold ">
-                    ${cart.totalPrice.toFixed(2)} USD
-                  </p>
+            <div className="absolute bg-white bottom-0 w-[380px]">
+              <div className=" pb-4  w-full bg-white pr-1">
+                <div className=" space-y-2 text-center">
+                  <div className="flex  gap-x-8 justify-between items-center pt-4 mb-4">
+                    <p className="text-2xl font-bold ">Total</p>
+                    <p className="text-lg   text-black px-2">
+                      ${cart.totalPrice.toFixed(2)} USD
+                    </p>
+                  </div>
                 </div>
+                <Link
+                  href={"/order"}
+                  className="text-center bg-primary-black text-primary-white py-4 "
+                >
+                  <button className="w-full text-center ">CHECKOUT</button>
+                </Link>
               </div>
-              <Link
-                href={"/order"}
-                className="text-center bg-primary-black text-primary-white py-4 "
-              >
-                <button className="w-full text-center ">CHECKOUT</button>
-              </Link>
             </div>
           </div>
         </button>

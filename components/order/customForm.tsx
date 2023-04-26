@@ -22,7 +22,7 @@ export default function CustomForm({ form }: { form: FormType }) {
             input.size == 1 ? (
               <div
                 key={index}
-                className="flex flex-col px-4 space-y-2 pb-4 w-full"
+                className="flex flex-col  space-y-2 pb-4 w-full"
               >
                 {input.heading.map((data) => (
                   <>
@@ -44,7 +44,7 @@ export default function CustomForm({ form }: { form: FormType }) {
                 {input.heading.map((data, idx) => (
                   <div
                     key={idx}
-                    className={`${data.class} col-span-1  flex flex-col px-4 space-y-2 w-full`}
+                    className={`${data.class} col-span-1  flex flex-col  space-y-2 w-full`}
                   >
                     <p className="text-lg whitespace-nowrap">{data.name} *</p>
                     <input
@@ -58,7 +58,7 @@ export default function CustomForm({ form }: { form: FormType }) {
             )
           )}
         </form>
-        <div className="w-full px-4 pb-16 pt-8">
+        <div className="w-full  pb-16 pt-8">
           <p className="text-lg ">{form.warning}</p>
         </div>
       </div>
