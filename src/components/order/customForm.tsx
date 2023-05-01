@@ -3,7 +3,6 @@
 import { useAppDispatch } from "@/app/hooks";
 import { FormType } from "@/interfaces/order";
 // import { useAppDispatch, useAppSelector } from "@/app/hooks";
-import { changeValue } from "@/redux/order/reducer";
 
 export default function CustomForm({ form }: { form: FormType }) {
   const dispatch = useAppDispatch();
@@ -22,7 +21,7 @@ export default function CustomForm({ form }: { form: FormType }) {
             input.size == 1 ? (
               <div
                 key={index}
-                className="flex flex-col  space-y-2 pb-4 w-full"
+                className="flex flex-col  space-y-2 pb-4 w-full "
               >
                 {input.heading.map((data) => (
                   <>
@@ -33,18 +32,18 @@ export default function CustomForm({ form }: { form: FormType }) {
                       placeholder={data.placeholder}
                       onChange={(e) => {
                         const newQuantity = e.target.value;
-                        dispatch(changeValue(newQuantity));
+                        // dispatch(changeValue(newQuantity));
                       }}
                     />
                   </>
                 ))}{" "}
               </div>
             ) : (
-              <div key={index} className={`${input.class}`}>
+              <div key={index} className={`${input.class} gap-x-4`}>
                 {input.heading.map((data, idx) => (
                   <div
                     key={idx}
-                    className={`${data.class} col-span-1  flex flex-col  space-y-2 w-full`}
+                    className={`${data.class} col-span-1  flex flex-col   space-y-2 w-full`}
                   >
                     <p className="text-lg whitespace-nowrap">{data.name} *</p>
                     <input

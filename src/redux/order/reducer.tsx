@@ -5,6 +5,8 @@ import { useAppSelector } from "@/app/hooks";
 
 import data from "./../../model/data.json";
 import { RootState } from "@/app/store";
+import { PosterProductType } from "@/interfaces/product";
+import { CartType } from "@/interfaces/cart";
 
 function removeObjectWithId(arr: any, id: number) {
   const objWithIdIndex = arr.findIndex((obj: any) => obj.id === id);
@@ -16,60 +18,79 @@ function removeObjectWithId(arr: any, id: number) {
   return arr;
 }
 
+function calculateCartTotal(cartItems: PosterProductType[]): {
+  amount: number;
+  totalPrice: number;
+} {
+  let amount = 0;
+  let totalPrice = 0;
+  for (const item of cartItems) {
+    amount += item.quantity;
+    totalPrice += item.quantity * item.price;
+  }
+  totalPrice.toFixed(2);
+  return { amount, totalPrice };
+}
+
 const initialState: OrderType = {
-  // cart: carts,
-  shipping: data.shipping,
-  payment: data.payment,
+  orderItems: [],
+  totalPrice: 0,
+  amount: 0,
 };
 
 export const orderSlice = createSlice({
   name: "cartCounter",
   initialState,
   reducers: {
-    changeValue: (state, action: PayloadAction<string>) => {
-      state.shipping.email = action.payload;
+    increement: (state, action: PayloadAction<PosterProductType>) => {
+      const itemIndex = state.orderItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex !== -1) {
+        state.orderItems[itemIndex].quantity += 1;
+      }
+      const { amount, totalPrice } = calculateCartTotal(state.orderItems);
+      state.amount = amount;
+      state.totalPrice = totalPrice;
     },
-    // changeFullName: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
-    // changeStreetAdress: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
-    // changeCity: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
-    // changeState: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
-    // changeZip: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
-    // changeCardNumber: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
-    // changeExpirationDate: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
-    // changeSecurityCode: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
-    // changeSCountry: (state, action: PayloadAction<string>) => {
-    //   state.shipping.email = action.payload;
-    // },
+
+    decreement: (state, action: PayloadAction<PosterProductType>) => {
+      const itemIndex = state.orderItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex !== -1) {
+        state.orderItems[itemIndex].quantity -= 1;
+      }
+      const { amount, totalPrice } = calculateCartTotal(state.orderItems);
+      state.totalPrice = totalPrice;
+    },
+    addByAmount: (state, action: PayloadAction<PosterProductType>) => {
+      const itemIndex = state.orderItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex !== -1) {
+        state.orderItems[itemIndex].quantity += action.payload.quantity;
+      }
+      const { amount, totalPrice } = calculateCartTotal(state.orderItems);
+      state.totalPrice = totalPrice;
+    },
+
+    addToOrder: (state, action: PayloadAction<CartType>) => {
+      state.orderItems = action.payload.cartItems;
+      state.totalPrice = action.payload.totalPrice;
+      state.amount = action.payload.amount;
+    },
+
+    remove: (state, action: PayloadAction<PosterProductType>) => {
+      removeObjectWithId(state.orderItems, action.payload.id);
+      const { amount, totalPrice } = calculateCartTotal(state.orderItems);
+      state.amount = amount;
+      state.totalPrice = totalPrice;
+    },
   },
 });
 
-export const {
-  changeValue,
-  // changeFullName,
-  // changeStreetAdress,
-  // changeCity,
-  // changeState,
-  // changeZip,
-  // changeCardNumber,
-  // changeExpirationDate,
-  // changeSecurityCode,
-  // changeSCountry,
-} = orderSlice.actions;
+export const { increement, decreement, addByAmount, addToOrder, remove } =
+  orderSlice.actions;
 
 export default orderSlice.reducer;

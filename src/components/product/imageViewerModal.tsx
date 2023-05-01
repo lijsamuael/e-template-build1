@@ -29,7 +29,7 @@ export default function ImageViewerModal(props: ImageViewerProps) {
           onClick={handleCartClose}
           className="  fixed z-10 inset-0 bg-gray-dark1  w-full h-screen flex  justify-center items-center  bg-opacity-40 py-32"
         >
-          <div className="overflow-y-auto flex flex-col  w-full ssm:w-[600px] bg-white h-[780px] p-4 rounded-lg">
+          <div className="overflow-y-auto flex flex-col  w-full sm:w-[600px] bg-white h-[780px] p-4 rounded-lg">
             <div className="flex flex-col ">
               <div className="flex justify-between items-center">
                 <p className="text-center text-3xl font-bold">

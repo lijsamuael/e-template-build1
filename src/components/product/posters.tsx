@@ -3,8 +3,6 @@
 import Cart from "@/components/cart/cart";
 import { useEffect, useState } from "react";
 
-import data from "../../model/data.json";
-
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 import { changeAmount } from "../../redux/product/reducer";

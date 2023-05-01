@@ -1,3 +1,4 @@
+"use client";
 import OrderFooter from "@/components/order/footer";
 import OrderNavBar from "@/components/order/navbar";
 

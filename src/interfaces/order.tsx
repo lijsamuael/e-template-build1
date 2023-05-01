@@ -2,9 +2,9 @@ import { CartType } from "./cart";
 import { PosterProductType } from "./product";
 
 export interface OrderType {
-  // cart: CartType,
-  shipping: ShippingType;
-  payment: PaymentType;
+  orderItems: PosterProductType[],
+  totalPrice: number,
+  amount: number
 }
 
 export interface ShippingType {

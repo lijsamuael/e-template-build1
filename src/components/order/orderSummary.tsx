@@ -23,8 +23,10 @@ export default function OrderSummary({
           {cart.cartItems.map((item, index) => (
             <div key={index} className="flex justify-between">
               <p className="text-gray-400">{item.name}</p>
-              <p>$ 49.99 USD</p>
-              <p>x{item.quantity}</p>
+              <div className="flex gap-x-2">
+                <p>$49.99USD </p>
+                <p> x {item.quantity}</p>
+              </div>
             </div>
           ))}
         </div>
