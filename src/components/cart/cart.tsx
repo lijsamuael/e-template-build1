@@ -57,7 +57,7 @@ export default function Cart(props: CartModalProps) {
                 </div>
                 <hr className="mr-8 ssm:mr-3" />
               </div>
-              <div className="pt-[52px] pb-96">
+              <div className="pt-[52px] pb-28">
                 {cart.cartItems.map((item, index) => (
                   <CartItem key={index} cartItem={item}></CartItem>
                 ))}
