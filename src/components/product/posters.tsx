@@ -54,8 +54,8 @@ export default function Posters() {
     <div className="flex flex-col  items-center gap-y-16 pt-16 sm:pl-12">
       <h1 className="text-4xl mx-auto">Posters</h1>
       {posters.map((item, index) => (
-        <>
-          <div className="flex mb-8 max-w-[1200px] mx-auto " key={index}>
+        <div key={index}>
+          <div className="flex mb-8 max-w-[1200px] mx-auto ">
             <img
               className="self-center relative z-10 hidden sm:block sm:h-[370px] md:h-[350px]  sm:min-w-[40%] md:min-w-[30%]   lg:h-full   lg:w-[44%]  "
               src="./images/image1.png"
@@ -129,7 +129,7 @@ export default function Posters() {
               product={item}
             />
           )}
-        </>
+        </div>
       ))}
     </div>
   );

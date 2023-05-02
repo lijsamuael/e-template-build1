@@ -10,8 +10,8 @@ export default function CloseIcon() {
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></g>
       <g id="SVGRepo_iconCarrier">
         {" "}
@@ -19,8 +19,8 @@ export default function CloseIcon() {
           d="M6 6L18 18M18 6L6 18"
           stroke="#ffffff"
           strokeWidth="1.2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>{" "}
       </g>
     </svg>
